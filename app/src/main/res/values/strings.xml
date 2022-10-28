@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">NewsApp</string>
+    <string name="home">Home</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="title">Title</string>
+    <string name="published_date">Published Date</string>
+    <string name="save_bookmark">Save Bookmark?</string>
+    <string name="source">Source</string>
+    <string name="description">description</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="profile">Profile</string>
+    <string name="profile_image"><![CDATA[https://media-exp1.licdn.com/dms/image/C5603AQFuvHU6CV6iFA/profile-displayphoto-shrink_400_400/0/1657595297419?e=1672272000&v=beta&t=gHUJ3s5u1aHK7MIHk48CXb6-Zh5ow7fRf1ahn5PFMkg]]></string>
+    <string name="nama">Nama: Novri Lukman Zyarif</string>
+    <string name="username_mansao01">Username: mansao01</string>
+    <string name="my_username">mansao01</string>
+    <string name="github_link">https://github.com/mansao01</string>
+</resources>
