@@ -15,13 +15,15 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         val data = if (Build.VERSION.SDK_INT >= 33) {
             intent.getParcelableExtra(EXTRA_DATA, NewsEntity::class.java)
         } else {
             intent.getParcelableExtra<NewsEntity>(EXTRA_DATA)
         }
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = data?.title
+
 
         binding.apply {
             tvTitle.text = data?.title

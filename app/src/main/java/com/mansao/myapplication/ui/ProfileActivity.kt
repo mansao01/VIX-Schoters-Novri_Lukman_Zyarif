@@ -18,6 +18,7 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = resources.getString(R.string.profile)
 
         Glide.with(this)
             .load(resources.getString(R.string.profile_image))
