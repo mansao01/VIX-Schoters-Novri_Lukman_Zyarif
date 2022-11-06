@@ -4,6 +4,7 @@ import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.mansao.myapplication.R
 import com.mansao.myapplication.data.local.entity.NewsEntity
 import com.mansao.myapplication.databinding.ActivityDetailBinding
 
@@ -21,6 +22,7 @@ class DetailActivity : AppCompatActivity() {
             intent.getParcelableExtra<NewsEntity>(EXTRA_DATA)
         }
 
+
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = data?.title
 
@@ -32,6 +34,7 @@ class DetailActivity : AppCompatActivity() {
             tvDescription.text = data?.description
             Glide.with(this@DetailActivity)
                 .load(data?.urlToImage)
+                .placeholder(R.drawable.ic_broken_image_black)
                 .into(ivNews)
 
         }

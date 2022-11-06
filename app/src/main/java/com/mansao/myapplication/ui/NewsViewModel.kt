@@ -9,6 +9,8 @@ import kotlinx.coroutines.launch
 class NewsViewModel(private val newsRepository: NewsRepository) : ViewModel() {
     fun getHeadlineNews() = newsRepository.getHeadlineNews()
 
+    fun searchNews(query: String) = newsRepository.searchNews(query)
+
     fun getBookmarkedNews() = newsRepository.getBookmarkedNews()
 
     fun saveNews(news: NewsEntity) {
