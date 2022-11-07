@@ -75,8 +75,14 @@ class NewsFragment : Fragment() {
                 }
             }
             searchNews()
+            binding?.swipeRefresh?.setOnRefreshListener {
+                refreshNews()
+                binding?.swipeRefresh?.isRefreshing = false
+            }
         } else if (tabName == TAB_BOOKMARK) {
             binding?.searchView?.visibility = View.GONE
+            binding?.swipeRefresh?.visibility = View.GONE
+
             viewModel.getBookmarkedNews().observe(viewLifecycleOwner) { bookmarkedNews ->
                 binding?.progressBar?.visibility = View.GONE
                 newsAdapter.submitList(bookmarkedNews)
@@ -131,6 +137,34 @@ class NewsFragment : Fragment() {
                 }
 
             })
+        }
+    }
+
+    fun refreshNews(){
+        val viewModel: NewsViewModel by viewModels {
+            factory
+        }
+        viewModel.getHeadlineNews().observe(viewLifecycleOwner) { result ->
+            if (result != null) {
+                when (result) {
+                    is Result.Loading -> {
+                        binding?.progressBar?.visibility = View.VISIBLE
+                    }
+                    is Result.Success -> {
+                        binding?.progressBar?.visibility = View.GONE
+                        val newsData = result.data
+                        newsAdapter.submitList(newsData)
+                    }
+                    is Result.Error -> {
+                        binding?.progressBar?.visibility = View.GONE
+                        Toast.makeText(
+                            context,
+                            result.error,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
         }
     }
 
