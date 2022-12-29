@@ -80,8 +80,10 @@ class NewsFragment : Fragment() {
                 binding?.swipeRefresh?.isRefreshing = false
             }
         } else if (tabName == TAB_BOOKMARK) {
-            binding?.searchView?.visibility = View.GONE
-            binding?.swipeRefresh?.visibility = View.GONE
+            binding?.apply {
+                searchView.visibility = View.GONE
+                swipeRefresh.isRefreshing = false
+            }
 
             viewModel.getBookmarkedNews().observe(viewLifecycleOwner) { bookmarkedNews ->
                 binding?.progressBar?.visibility = View.GONE
@@ -106,9 +108,9 @@ class NewsFragment : Fragment() {
             searchView.queryHint = resources.getString(R.string.search_hint)
             searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
-                    query?.let { viewModel.searchNews(it) }?.observe(viewLifecycleOwner){result ->
-                        if (result != null){
-                            when(result){
+                    query?.let { viewModel.searchNews(it) }?.observe(viewLifecycleOwner) { result ->
+                        if (result != null) {
+                            when (result) {
                                 is Result.Loading -> {
                                     binding?.progressBar?.visibility = View.VISIBLE
                                 }
@@ -135,12 +137,11 @@ class NewsFragment : Fragment() {
                 override fun onQueryTextChange(newText: String?): Boolean {
                     return false
                 }
-
             })
         }
     }
 
-    fun refreshNews(){
+    private fun refreshNews() {
         val viewModel: NewsViewModel by viewModels {
             factory
         }

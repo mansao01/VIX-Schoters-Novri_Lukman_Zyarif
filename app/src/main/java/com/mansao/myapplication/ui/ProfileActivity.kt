@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
 import com.klinker.android.link_builder.Link
 import com.klinker.android.link_builder.applyLinks
 import com.mansao.myapplication.R
@@ -12,20 +13,26 @@ import com.mansao.myapplication.databinding.ActivityProfileBinding
 
 class ProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        auth = FirebaseAuth.getInstance()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = resources.getString(R.string.profile)
 
-        Glide.with(this)
-            .load(resources.getString(R.string.profile_image))
-            .centerCrop()
-            .into(binding.imgProfile)
 
-        linkToGithub()
+
+        val user = auth.currentUser
+        binding.tvName.text = StringBuilder(getString(R.string.email)).append( ": ${user?.email}")
+//        Glide.with(this)
+//            .load(resources.getString(R.string.profile_image))
+//            .centerCrop()
+//            .into(binding.imgProfile)
+//
+//        linkToGithub()
     }
 
     private fun linkToGithub() {
@@ -38,7 +45,7 @@ class ProfileActivity : AppCompatActivity() {
                 startActivity(intent)
             }
 
-        binding.tvUsername.applyLinks(githubLink)
+//        binding.tvUsername.applyLinks(githubLink)
     }
 
     override fun onSupportNavigateUp(): Boolean {

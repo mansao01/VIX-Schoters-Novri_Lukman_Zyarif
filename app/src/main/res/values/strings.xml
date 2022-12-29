@@ -15,4 +15,15 @@
     <string name="my_username">mansao01</string>
     <string name="github_link">https://github.com/mansao01</string>
     <string name="search_hint">Search News</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="fill_email">Fill the email</string>
+    <string name="fill_password">Fill the password</string>
+    <string name="not_valid_email">Email Not Valid</string>
+    <string name="not_valid_password">Password Not Valid</string>
+    <string name="hello">Hello</string>
+    <string name="registered">Register Berhasil</string>
+    <string name="logout">Logout</string>
 </resources>

@@ -6,7 +6,7 @@ import com.mansao.myapplication.data.local.entity.NewsEntity
 
 @Dao
 interface NewsDao {
-    @Query("SELECT * FROM news ORDER BY publishedAt DESC")
+    @Query("SELECT * FROM news where bookmarked = 0 ORDER BY title ASC")
     fun getNews(): LiveData<List<NewsEntity>>
 
     @Query("SELECT * FROM news where bookmarked = 1")

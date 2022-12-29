@@ -6,36 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".ui.ProfileActivity">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/img_profile"
-        android:layout_width="220dp"
-        android:layout_height="220dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+    <!--    <de.hdodenhof.circleimageview.CircleImageView-->
+    <!--        android:id="@+id/img_profile"-->
+    <!--        android:layout_width="220dp"-->
+    <!--        android:layout_height="220dp"-->
+    <!--        android:layout_marginTop="32dp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        tools:src="@tools:sample/avatars" />-->
 
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="@string/name"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:layout_constraintEnd_toEndOf="@+id/img_profile"
-        app:layout_constraintStart_toStartOf="@+id/img_profile"
-        app:layout_constraintTop_toBottomOf="@+id/img_profile" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
 
-    <TextView
-        android:id="@+id/tv_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/username_mansao01"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        app:layout_constraintEnd_toEndOf="@+id/tv_name"
-        app:layout_constraintStart_toStartOf="@+id/tv_name"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name"/>
+    <!--    <TextView-->
+    <!--        android:id="@+id/tv_username"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:text="@string/username_mansao01"-->
+    <!--        android:textAppearance="@style/TextAppearance.AppCompat.Body2"-->
+    <!--        app:layout_constraintEnd_toEndOf="@+id/tv_name"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/tv_name"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/tv_name"/>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
