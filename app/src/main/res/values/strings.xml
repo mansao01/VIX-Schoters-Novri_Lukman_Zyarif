@@ -26,4 +26,7 @@
     <string name="hello">Hello</string>
     <string name="registered">Register Berhasil</string>
     <string name="logout">Logout</string>
+    <string name="setting">Setting</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="settings">Settings</string>
 </resources>
